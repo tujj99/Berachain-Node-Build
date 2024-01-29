@@ -1,5 +1,11 @@
 # Berachain-Node-Build
 
+Linux OS
+amd64 or arm64 CPU
+4 cores
+16GB RAM
+500GB storage
+
 ```
 cd $HOME
 sudo apt-get install golang -y
