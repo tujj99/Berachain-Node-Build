@@ -1,28 +1,43 @@
 # Berachain-Node-Build
 
-Linux OS
-amd64 or arm64 CPU
-4 cores
-16GB RAM
-500GB storage
+1. 去阿里云、百度云或者搬瓦工租一台vps，家里闲置电脑/服务器也可以，要求16G内存, 200G硬盘, 6 核cpu
+安装ubuntu 22.04 server或者desktop都行，开启openssh服务，硬件部分就搭建完了
+2. 用FinalShell（其他ssh工具都可以）登录服务器
+3. 安装Go 1.20+以上版本，我用的1.21.6：
+```
+   cd ~
+   wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+   sudo tar -xzf go1.21.6.linux-amd64.tar.gz -C /usr/local/
+```
+   
+5. 安装以下软件：
+```
+   sudo apt-get install golang jq -y
+   echo 'export PATH=$PATH:/usr/local/go/bin' | tee -a ~/.bashrc
+   echo 'export PATH=$PATH:$(go env GOPATH)/bin' | tee -a ~/.bashrc
+   source ~/.bashrc
+```
+   
+6. 安装Foundry：
+```
+   curl -L https://foundry.paradigm.xyz | bash
+```
 
+8. Clone源码并执行：
 ```
-cd $HOME
-sudo apt-get install golang -y
+   cd ~
+   git clone https://github.com/berachain/polaris
+   cd polaris
+   git checkout main
+   make test-unit
 ```
-![image](https://github.com/tujj99/Berachain-Node-Build/assets/53027340/cada2033-ebc7-45a1-9d15-1737d193a7fa)
+9. 启动测试网：
+```
+   screen -S polaris
+   cd ~/polaris
+   make start
+```
 
-```
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
-```
-![image](https://github.com/tujj99/Berachain-Node-Build/assets/53027340/e4915bd4-027d-4278-874f-b20f47e6ca97)
-
-```
-git clone https://github.com/berachain/polaris
-cd polaris
-git checkout main
-go run magefiles/setup/setup.go
-```
-![image](https://github.com/tujj99/Berachain-Node-Build/assets/53027340/0dec774a-09a4-43fa-8126-d8d179d207be)
+成功后出现以下界面：
+![image](https://github.com/tujj99/Berachain-Node-Build/assets/53027340/4ae8869b-225e-4ede-9750-a87b761d16a3)
 
