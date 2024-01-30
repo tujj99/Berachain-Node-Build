@@ -39,5 +39,6 @@
 ```
 
 成功后出现以下界面：
+
 ![image](https://github.com/tujj99/Berachain-Node-Build/assets/53027340/4ae8869b-225e-4ede-9750-a87b761d16a3)
 
