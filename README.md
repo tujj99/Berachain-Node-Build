@@ -8,6 +8,7 @@
 cd ~
 wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
 sudo tar -xzf go1.21.6.linux-amd64.tar.gz -C /usr/local/
+go install github.com/onsi/ginkgo/v2/ginkgo@v2.14.0
 ```
    
 5. 安装以下软件：
