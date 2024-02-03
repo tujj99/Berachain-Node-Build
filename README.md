@@ -5,37 +5,39 @@
 2. 用FinalShell（其他ssh工具都可以）登录服务器
 3. 安装Go 1.20+以上版本，我用的1.21.6：
 ```
-   cd ~
-   wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
-   sudo tar -xzf go1.21.6.linux-amd64.tar.gz -C /usr/local/
+cd ~
+wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+sudo tar -xzf go1.21.6.linux-amd64.tar.gz -C /usr/local/
 ```
    
 5. 安装以下软件：
 ```
-   sudo apt-get install golang jq -y
-   echo 'export PATH=$PATH:/usr/local/go/bin' | tee -a ~/.bashrc
-   echo 'export PATH=$PATH:$(go env GOPATH)/bin' | tee -a ~/.bashrc
-   source ~/.bashrc
+sudo apt-get install golang jq -y
+echo 'export PATH=$PATH:/usr/local/go/bin' | tee -a ~/.bashrc
+echo 'export PATH=$PATH:$(go env GOPATH)/bin' | tee -a ~/.bashrc
+source ~/.bashrc
 ```
    
 6. 安装Foundry：
 ```
-   curl -L https://foundry.paradigm.xyz | bash
+curl -L https://foundry.paradigm.xyz | bash
+source ~/.bashrc
+foundryup
 ```
 
 8. Clone源码并执行：
 ```
-   cd ~
-   git clone https://github.com/berachain/polaris
-   cd polaris
-   git checkout main
-   make test-unit
+cd ~
+git clone https://github.com/berachain/polaris
+cd polaris
+git checkout main
+make test-unit
 ```
 9. 启动测试网：
 ```
-   screen -S polaris
-   cd ~/polaris
-   make start
+screen -S polaris
+cd ~/polaris
+make start
 ```
 
 成功后出现以下界面：
