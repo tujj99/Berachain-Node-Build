@@ -8,15 +8,16 @@
 cd ~
 wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
 sudo tar -xzf go1.21.6.linux-amd64.tar.gz -C /usr/local/
+echo 'export PATH=$PATH:/usr/local/go/bin' | tee -a ~/.bashrc
+source ~/.bashrc
 go install github.com/onsi/ginkgo/v2/ginkgo@v2.14.0
+echo 'export PATH=$PATH:$(go env GOPATH)/bin' | tee -a ~/.bashrc
+source ~/.bashrc
 ```
    
 5. 安装以下软件：
 ```
 sudo apt-get install jq -y
-echo 'export PATH=$PATH:/usr/local/go/bin' | tee -a ~/.bashrc
-echo 'export PATH=$PATH:$(go env GOPATH)/bin' | tee -a ~/.bashrc
-source ~/.bashrc
 ```
    
 6. 安装Foundry：
